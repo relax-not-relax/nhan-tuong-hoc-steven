@@ -1,0 +1,17 @@
+.login-div {
+  background-color: #4e48366c;
+  border-radius: 50px;
+  border: #dbaf6d 1px solid;
+}
+
+.page-group {
+  background-color: #4e48366c !important;
+  border-radius: 50px !important;
+  border: #dbaf6d 1px solid;
+
+  a:active {
+    border-radius: 50px !important;
+    border-left: #dbaf6d 1px solid;
+    border-right: #dbaf6d 1px solid;
+  }
+}

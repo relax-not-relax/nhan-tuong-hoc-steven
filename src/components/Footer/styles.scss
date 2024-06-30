@@ -1,0 +1,18 @@
+.my-footer {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+
+  &-el {
+    font-weight: 600;
+    color: #005245;
+    &-title {
+      font-weight: 600;
+      color: #005245;
+    }
+  }
+}
+
+.copyright {
+  color: #827469 !important;
+}
