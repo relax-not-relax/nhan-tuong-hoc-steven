@@ -15,3 +15,11 @@
     border-right: #dbaf6d 1px solid;
   }
 }
+
+.my-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
