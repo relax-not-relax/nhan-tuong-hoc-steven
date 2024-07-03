@@ -1,14 +1,18 @@
 .my-footer {
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  background-position: center !important;
+  background-position: center top !important;
 
   &-el {
     font-weight: 600;
     color: #005245;
+    transition: 0.5 ease-in-out;
     &-title {
       font-weight: 600;
       color: #005245;
+    }
+    &:hover {
+      text-decoration: underline !important;
     }
   }
 }
