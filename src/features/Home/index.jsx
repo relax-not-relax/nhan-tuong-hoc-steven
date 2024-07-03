@@ -7,6 +7,10 @@ import facebook from "../../images/fb-white.png";
 import ins from "../../images/ins-white.png";
 import threads from "../../images/threads-white.png";
 import trochuyen from "../../images/trochuyen.png";
+import blog1 from "../../images/blog-1.jpg";
+import blog2 from "../../images/blog-2.jpg";
+import blog3 from "../../images/blog-3.jpg";
+import avatar from "../../images/avatar.jpg";
 
 function HomeFeature() {
   return (
@@ -174,6 +178,169 @@ function HomeFeature() {
           </div>
           <div className="flex-1 grid justify-items-center sm:justify-items-end columns-3xs content-center">
             <img src={trochuyen} alt="" className="w-4/6 sm:w-full" />
+          </div>
+        </div>
+      </div>
+      <div className="my-home__section-5">
+        <div className="my-home__section-5-content flex justify-center items-center py-24 md:py-32 px-9 xl:px-0">
+          <div className="container mx-auto">
+            <div className="grid justify-items-center">
+              <h3 className="text-xl md:text-2xl lg:text-3xl text-white mb-4">
+                Khám phá
+              </h3>
+              <div className="my-home__section-5-content-title h-12 md:h-14 lg:h-16">
+                <div className="title-decoration w-24 md:w-36 lg:w-56"></div>
+                <h2 className="text-white text-3xl md:text-5xl lg:text-6xl title-text">
+                  <span className="font-bold">Thư viện </span>bài viết
+                </h2>
+              </div>
+              <p className="mt-4 sm:mt-14 text-base sm:text-2xl text-white text-center md:w-9/12 lg:w-2/5 xl:w-4/12 mb-8 sm:mb-8">
+                Kho kiến thức nhân tướng dành cho các thành viên yêu thích luận
+                tướng dạo.
+              </p>
+              <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-12 sm:mb-24">
+                <article class="flex max-w-xl flex-col items-start justify-between my-blog">
+                  <div
+                    className="w-full h-72 mb-4 rounded-3xl"
+                    style={{
+                      background: `url(${blog1})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-16" class="text-white">
+                      12/06/2024
+                    </time>
+                  </div>
+                  <div class="group relative">
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-white text-start">
+                      <a href="/">
+                        <span class="absolute inset-0"></span>
+                        Boost your conversion rate
+                      </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm leading-6 text-white text-start">
+                      Illo sint voluptas. Error voluptates culpa eligendi. Hic
+                      vel totam vitae illo. Non aliquid explicabo necessitatibus
+                      unde. Sed exercitationem placeat consectetur nulla
+                      deserunt vel. Iusto corrupti dicta.
+                    </p>
+                  </div>
+                  <div class="relative mt-8 flex items-center gap-x-4">
+                    <img
+                      src={avatar}
+                      alt=""
+                      class="h-10 w-10 rounded-full bg-gray-50"
+                    />
+                    <div class="text-sm leading-6">
+                      <p class="font-semibold text-white text-start">
+                        <a href="/">
+                          <span class="absolute inset-0"></span>
+                          Steven Tran
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between my-blog">
+                  <div
+                    className="w-full h-72 mb-4 rounded-3xl"
+                    style={{
+                      background: `url(${blog2})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-16" class="text-white">
+                      12/06/2024
+                    </time>
+                  </div>
+                  <div class="group relative">
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-white text-start">
+                      <a href="/">
+                        <span class="absolute inset-0"></span>
+                        Boost your conversion rate
+                      </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm leading-6 text-white text-start">
+                      Illo sint voluptas. Error voluptates culpa eligendi. Hic
+                      vel totam vitae illo. Non aliquid explicabo necessitatibus
+                      unde. Sed exercitationem placeat consectetur nulla
+                      deserunt vel. Iusto corrupti dicta.
+                    </p>
+                  </div>
+                  <div class="relative mt-8 flex items-center gap-x-4">
+                    <img
+                      src={avatar}
+                      alt=""
+                      class="h-10 w-10 rounded-full bg-gray-50"
+                    />
+                    <div class="text-sm leading-6">
+                      <p class="font-semibold text-white text-start">
+                        <a href="/">
+                          <span class="absolute inset-0"></span>
+                          Steven Tran
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="flex max-w-xl flex-col items-start justify-between my-blog">
+                  <div
+                    className="w-full h-72 mb-4 rounded-3xl"
+                    style={{
+                      background: `url(${blog3})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div class="flex items-center gap-x-4 text-xs">
+                    <time datetime="2020-03-16" class="text-white">
+                      12/06/2024
+                    </time>
+                  </div>
+                  <div class="group relative">
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-white text-start">
+                      <a href="/">
+                        <span class="absolute inset-0"></span>
+                        Boost your conversion rate
+                      </a>
+                    </h3>
+                    <p class="mt-5 line-clamp-3 text-sm leading-6 text-white text-start">
+                      Illo sint voluptas. Error voluptates culpa eligendi. Hic
+                      vel totam vitae illo. Non aliquid explicabo necessitatibus
+                      unde. Sed exercitationem placeat consectetur nulla
+                      deserunt vel. Iusto corrupti dicta.
+                    </p>
+                  </div>
+                  <div class="relative mt-8 flex items-center gap-x-4">
+                    <img
+                      src={avatar}
+                      alt=""
+                      class="h-10 w-10 rounded-full bg-gray-50"
+                    />
+                    <div class="text-sm leading-6">
+                      <p class="font-semibold text-white text-start">
+                        <a href="/">
+                          <span class="absolute inset-0"></span>
+                          Steven Tran
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <button
+                type="button"
+                className="my-home__section-5-btn text-base sm:text-2xl"
+              >
+                Xem tất cả
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -113,4 +113,44 @@
       border: 1px solid #dbaf6d;
     }
   }
+
+  &__section-5 {
+    background: url("../../images/5-bg.jpg") no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 100vh !important;
+    &-content {
+      min-height: 100vh !important;
+      background: rgba(0, 0, 0, 0.64);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      &-title {
+        position: relative;
+        width: fit-content;
+        .title-decoration {
+          position: absolute;
+          height: 27px !important;
+          background: linear-gradient(to right, #005245, #dbaf6d);
+          z-index: 2;
+          bottom: 0;
+          left: 0;
+        }
+        .title-text {
+          position: relative;
+          z-index: 3;
+        }
+      }
+      .my-blog {
+        transition: 0.4s ease-in-out;
+      }
+    }
+    &-btn {
+      background-color: #a1492191;
+      font-weight: 600 !important;
+      color: #ffffff !important;
+      padding: 20px 80px !important;
+      border-radius: 50px !important;
+      border: 1px solid #dbaf6d;
+    }
+  }
 }

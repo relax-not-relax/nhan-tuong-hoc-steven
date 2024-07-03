@@ -106,11 +106,41 @@ export default function Footer() {
               Theo dõi Nhân tướng học Steven tại
             </p>
             <div className="flex">
-              <img src={youtube} alt="" className="pr-2" />
-              <img src={tiktok} alt="" className="pr-2" />
-              <img src={facebook} alt="" className="pr-2" />
-              <img src={instagram} alt="" className="pr-2" />
-              <img src={threads} alt="" className="pr-2" />
+              <a
+                href="https://www.youtube.com/@nhantuonghocsteven"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={youtube} alt="" className="pr-2" />
+              </a>
+              <a
+                href="https://www.tiktok.com/@nt_steven89"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={tiktok} alt="" className="pr-2" />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100086759123604"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={facebook} alt="" className="pr-2" />
+              </a>
+              <a
+                href="https://www.instagram.com/nthsteven/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={instagram} alt="" className="pr-2" />
+              </a>
+              <a
+                href="https://www.threads.net/@nthsteven"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={threads} alt="" className="pr-2" />
+              </a>
             </div>
           </div>
         </div>
