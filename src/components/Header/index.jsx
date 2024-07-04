@@ -14,9 +14,13 @@ export default function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 "
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <img className="h-20 w-auto" src={logo} alt="" />
+        <div className="flex lg:flex-1 ">
+          <Link href="/" className="-m-1.5 p-1.5 ">
+            <img
+              className="min-[376px]:h-20 min-[376px]:w-auto h-16 w-auto"
+              src={logo}
+              alt=""
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
