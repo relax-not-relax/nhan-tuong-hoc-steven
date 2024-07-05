@@ -190,8 +190,8 @@ function HomeFeature() {
         </div>
       </div>
       <div className="my-home__section-5">
-        <div className="my-home__section-5-content flex justify-center items-center py-8 px-0 min-[376px]:py-12 min-[376px]:px-0 lg:py-16 lg:px-0 md:px-0 md:py-12 px-9 xl:px-0 xl:py-24">
-          <div className="container mx-auto px-4 min-[376px]:px-9 lg:px-24">
+        <div className="my-home__section-5-content flex justify-center items-center py-8 px-4 min-[376px]:py-12 min-[376px]:px-0 lg:py-16 lg:px-0 md:px-0 md:py-12 xl:px-0 xl:py-24">
+          <div className="container mx-auto px-0 min-[376px]:px-9 lg:px-24">
             <div className="grid justify-items-center">
               <h3 className="text-base min-[376px]:text-base md:text-xl xl:text-2xl text-white xl:mb-2">
                 Khám phá
@@ -206,7 +206,7 @@ function HomeFeature() {
                 Kho kiến thức nhân tướng dành cho các thành viên yêu thích luận
                 tướng dạo.
               </p>
-              <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:mb-12 md:mb-16 min-[376px]:mb-8 mb-8">
+              <div class="mx-auto mt-4 min-[376px]:mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:mb-12 md:mb-16 min-[376px]:mb-8 mb-8">
                 <article class="flex max-w-xl flex-col items-start justify-start my-blog">
                   <div
                     className="w-full h-52 min-[376px]:h-56 xl:h-72 md:h-60 mb-2 rounded-3xl"
