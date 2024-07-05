@@ -160,7 +160,7 @@ function HomeFeature() {
           </div>
         </div>
       </div>
-      <div className="h-fit my-home__section-4 flex justify-center items-center py-0 min-[376px]:py-14 sm:py-32 pb-12 min-[376px]:pb-0">
+      <div className="h-fit my-home__section-4 flex justify-center items-center py-0 min-[376px]:py-14 sm:py-32 pb-12 min-[376px]:pb-12">
         <div className="container px-4 min-[376px]:px-9 lg:px-24 mx-auto flex-wrap sm:flex columns-3xs justify-between">
           <div className="flex-none w-full sm:w-3/5 grid justify-items-start h-auto content-center">
             <h3 className="text-base min-[376px]:text-base md:text-xl xl:text-2xl text-white xl:mb-2">
