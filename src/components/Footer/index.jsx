@@ -13,7 +13,7 @@ export default function Footer() {
       className="mx-auto h-fit my-footer"
       style={{ backgroundImage: `url(${footerBackground})` }}
     >
-      <div className="container mx-auto xl:w-3/4 px-5 xl:px-0 pt-10 md:pt-12 pb-10 md:pb-24">
+      <div className="container mx-auto xl:w-3/4 px-5 xl:px-0 pt-0 md:pt-12 xl:pt-1 pb-10 md:pb-24 xl:pb-16">
         <img className="h-44 w-auto" src={logoText} alt="" />
         <div className="flex flex-wrap items-start justify-start">
           <div className="flex-auto sm:flex-initial sm:w-72 columns-3xs">
