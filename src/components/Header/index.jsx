@@ -90,7 +90,7 @@ export default function Header() {
         }}
       >
         <div className="fixed inset-0" style={{ zIndex: 10000 }} />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#fbf7f0] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#f4e6d2] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="/" className="-m-1.5 p-1.5">
               <img className="h-8 w-auto" src={logo} alt="" />
