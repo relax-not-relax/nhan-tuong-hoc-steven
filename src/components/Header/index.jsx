@@ -90,7 +90,7 @@ export default function Header() {
         }}
       >
         <div className="fixed inset-0" style={{ zIndex: 10000 }} />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#fbf7f0] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="/" className="-m-1.5 p-1.5">
               <img className="h-8 w-auto" src={logo} alt="" />
@@ -109,31 +109,31 @@ export default function Header() {
               <div className="space-y-2 py-6">
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Khóa học
                 </a>
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Tư vấn 1-1
                 </a>
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Cửa hàng
                 </a>
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Thư viện
                 </a>
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Liên hệ
                 </a>
@@ -141,7 +141,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="/"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Log in
                 </a>
