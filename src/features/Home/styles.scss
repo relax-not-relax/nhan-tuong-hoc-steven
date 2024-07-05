@@ -1,5 +1,4 @@
 .my-home {
-  height: 90vh !important;
   background: url("../../images/banner.jpg");
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -19,14 +18,13 @@
     color: #ffffff !important;
     border-radius: 50px !important;
     border: 1px solid #dbaf6d;
-  }
+    transition: 0.3s ease-in-out;
 
-  &-btn-2 {
-    background-color: #ffffff96;
-    font-weight: 600 !important;
-    color: #4e4836 !important;
-    border-radius: 50px !important;
-    border: 1px solid #dbaf6d;
+    &:hover {
+      background-color: #ffffff96;
+      font-weight: 600 !important;
+      color: #4e4836 !important;
+    }
   }
 
   &__section-2 {
@@ -45,7 +43,6 @@
       background-color: #a1492191;
       font-weight: 600 !important;
       color: #ffffff !important;
-      padding: 20px 40px !important;
       border-radius: 50px !important;
       border: 1px solid #dbaf6d;
     }
@@ -106,7 +103,7 @@
       background-color: #a1492191;
       font-weight: 600 !important;
       color: #ffffff !important;
-      padding: 20px 40px !important;
+
       border-radius: 50px !important;
       border: 1px solid #dbaf6d;
     }
@@ -146,7 +143,7 @@
       background-color: #a1492191;
       font-weight: 600 !important;
       color: #ffffff !important;
-      padding: 20px 80px !important;
+
       border-radius: 50px !important;
       border: 1px solid #dbaf6d;
     }

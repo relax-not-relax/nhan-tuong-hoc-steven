@@ -2,17 +2,22 @@
   background-color: #4e48366c;
   border-radius: 50px;
   border: #dbaf6d 1px solid;
+  transition: 0.4s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 30px 20px #c2a759;
+  }
 }
 
 .page-group {
   background-color: #4e48366c !important;
   border-radius: 50px !important;
   border: #dbaf6d 1px solid;
+  transition: 0.5s ease-in-out;
 
-  a:active {
+  a:hover {
     border-radius: 50px !important;
-    border-left: #dbaf6d 1px solid;
-    border-right: #dbaf6d 1px solid;
+    border-inline: #dbaf6d 2px solid;
   }
 }
 
