@@ -131,7 +131,7 @@ function CourseFeature() {
                 </div>
               </div>
               <div className="flex-1 grid justify-items-center sm:justify-items-center columns-3xs content-center mt-8 min-[376px]:mt-8 sm:mt-8 md:mt-0 lg:h-[300px] md:h-[350px]">
-                <div className="w-[90%] h-72 min-[376px]:h-72 xl:h-48 md:h-48 mb-2 rounded-3xl bg-white fee-banner relative xl:hover:h-[350px] lg:hover:h-[300px] md:hover:h-[350px]">
+                <div className="w-[90%] h-72 min-[376px]:h-[300px] xl:h-48 md:h-48 mb-2 rounded-3xl bg-white fee-banner relative xl:hover:h-[350px] lg:hover:h-[300px] md:hover:h-[350px]">
                   <img
                     src={nangcao}
                     alt=""
@@ -167,7 +167,7 @@ function CourseFeature() {
                         </li>
                       </ul>
                     </div>
-                    <p className="xl:text-base min-[376px]:text-sm text-sm xl:mt-1 text-[#A14A21] font-bold italic min-[376px]:w-[90%] w-[90%] min-[376px]:mt-0 mt-2 text-left mb-0 min-[376px]:mb-8 sm:mb-0">
+                    <p className="xl:text-base min-[376px]:text-sm text-sm xl:mt-1 text-[#A14A21] font-bold italic min-[376px]:w-[90%] w-[90%] min-[376px]:mt-4 mt-2 text-left mb-0 min-[376px]:mb-8 sm:mb-0">
                       ***Khoá Nâng cao chỉ dành cho các học viên đã hoàn thành
                       xong Khoá Cơ Bản
                     </p>
