@@ -3,10 +3,13 @@ import logo from "../../images/logo_bg.png";
 import { useState } from "react";
 import { Bars3Icon, UserIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import "./styles.scss";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { MenuData } from "./MenuData";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header className="bg-transparent my-header">
@@ -15,13 +18,13 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1 ">
-          <Link href="/" className="-m-1.5 p-1.5 ">
+          <a href="/" className="-m-1.5 p-1.5 ">
             <img
               className="min-[376px]:h-20 min-[376px]:w-auto h-16 w-auto"
               src={logo}
               alt=""
             />
-          </Link>
+          </a>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -35,36 +38,24 @@ export default function Header() {
         </div>
 
         <PopoverGroup className="hidden lg:flex bg-red-100 page-group">
-          <a
-            href="/"
-            className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8 page-group-title"
-          >
-            Khóa học
-          </a>
-          <a
-            href="/"
-            className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8 page-group-title"
-          >
-            Tư vấn 1-1
-          </a>
-          <a
-            href="/"
-            className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8 page-group-title"
-          >
-            Cửa hàng
-          </a>
-          <a
-            href="/"
-            className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8 page-group-title"
-          >
-            Thư viện
-          </a>
-          <a
-            href="/"
-            className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8 page-group-title "
-          >
-            Liên hệ
-          </a>
+          {MenuData.map((val, key) => {
+            const isActive =
+              location.pathname === val.link ||
+              location.pathname.startsWith(val.link);
+            return (
+              <a
+                key={key}
+                className="text-lg text-white font-semibold leading-6 text-gray-900 xl:py-3 xl:px-10 md:py-3 md:px-8"
+                id={isActive ? "active" : ""}
+                href={val.link}
+                onClick={() => {
+                  navigate(`${val.link}`);
+                }}
+              >
+                {val.title}
+              </a>
+            );
+          })}
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <div className="p-2 login-div">
@@ -108,7 +99,7 @@ export default function Header() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <a
-                  href="/"
+                  href="/khoa-hoc"
                   className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Khóa học
