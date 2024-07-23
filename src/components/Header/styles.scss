@@ -15,7 +15,8 @@
   border: #dbaf6d 1px solid;
   transition: 0.5s ease-in-out;
 
-  a:hover {
+  a:hover,
+  #active {
     border-radius: 50px !important;
     border-inline: #dbaf6d 2px solid;
   }

@@ -16,3 +16,8 @@ img {
   -ms-user-select: none;
   pointer-events: none;
 }
+
+@font-face {
+  font-family: "DFVNFloat";
+  src: url(./fonts/DFVN\ Float.ttf) format("truetype");
+}
