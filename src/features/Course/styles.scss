@@ -75,6 +75,7 @@
 
       .text-hl {
         animation: glow 1.5s infinite alternate;
+        border-radius: 50px !important;
       }
 
       @keyframes glow {
@@ -101,19 +102,9 @@
     }
   }
   &__section-4 {
-    background: linear-gradient(#4e4836, #000000);
-    &-content {
-      z-index: 1;
-      &-img {
-        z-index: 2;
-      }
-      &-details {
-        z-index: 3;
-        ul {
-          text-align: left !important;
-        }
-      }
-    }
+    background: url("../../images/paper.png") no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
   &__section-5 {
     background: url("../../images/6-bg.jpg") no-repeat !important;

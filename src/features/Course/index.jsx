@@ -8,10 +8,9 @@ import blog3 from "../../images/blog-3.jpg";
 import avatar from "../../images/avatar.jpg";
 import coban from "../../images/coban.png";
 import nangcao from "../../images/nangcao.png";
-import decor1 from "../../images/decor-1.png";
+import nguoi from "../../images/nguoi.svg";
 import decor2 from "../../images/decor-2.png";
-import decor3 from "../../images/decor-3.png";
-import coursebg from "../../images/course-bg.png";
+import but from "../../images/but.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -24,7 +23,7 @@ function CourseFeature() {
       <div className="my-course__section-1 h-screen">
         <div className="h-screen my-course__section-1-bg"></div>
         <div className="py-14 min-[376px]:py-8 sm:py-0 h-screen my-course__section-1-content flex justify-center items-center">
-          <div className="container px-4 min-[376px]:px-9 lg:px-24 xl:px-40 mx-auto flex-wrap sm:flex columns-3xs justify-between">
+          <div className="container px-4 min-[376px]:px-9 lg:px-24 xl:px-40 mx-auto flex-wrap sm:flex columns-3xs justify-between 2xl:pt-0 xl:pt-8">
             <div className="flex-1 grid justify-items-center columns-3xs content-center md:mb-0">
               <img src={course} alt="" className="w-4/6 sm:w-4/5" />
             </div>
@@ -42,7 +41,7 @@ function CourseFeature() {
                 type="button"
                 className="prevent-select my-course__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 xl:mt-8 md:mt-10 min-[376px]:mt-4 mt-4"
               >
-                Đặt lịch tại đây
+                Đăng ký tại đây
               </button>
             </div>
           </div>
@@ -74,13 +73,13 @@ function CourseFeature() {
         </div>
       </div>
       <div className="my-course__section-3 h-fit">
-        <div className="xl:h-[90vh] lg:h-[75vh] md:h-[80vh] min-[376px]:h-full h-full my-course__section-3-bg"></div>
-        <div className="py-8 min-[376px]:py-8 md:py-16 xl:py-24 xl:h-[90vh] lg:h-[75vh] md:h-[80vh] min-[376px]:h-fit h-fit my-course__section-3-content">
+        <div className="h-full my-course__section-3-bg"></div>
+        <div className="py-8 min-[376px]:py-8 md:py-16 xl:py-24 h-fit my-course__section-3-content">
           <div className="grid justify-items-center">
             <h3 className="text-xl min-[376px]:text-xl md:text-2xl xl:text-4xl text-white xl:mb-6 md:mb-4 min-[376px]:mb-4 mb-4 prevent-select font-semibold uppercase">
               Học phí
             </h3>
-            <p className="text-base min-[376px]:text-base md:text-2xl xl:text-3xl text-[#e2bf8a] font-semibold mb-4 sm:mb-8 md:mb-16 xl:mb-6 min-[376px]:w-[65%] w-[65%] sm:w-auto prevent-select text-hl">
+            <p className="text-base min-[376px]:text-base md:text-2xl xl:text-3xl text-[#e2bf8a] font-semibold mb-4 sm:mb-8 md:mb-16 xl:mb-6 min-[376px]:w-[65%] w-[65%] sm:w-auto prevent-select text-hl p-4">
               Ưu đãi khi đăng ký cùng lúc 2 khóa Cơ bản & Nâng cao: 9.000.000 đ
             </p>
             <div className="container xl:px-32 mx-auto flex-wrap sm:flex columns-3xs justify-between xl:mt-10">
@@ -184,85 +183,102 @@ function CourseFeature() {
           </div>
         </div>
       </div>
-      <div className="lg:h-screen md:h-[65vh] min-[376px]:h-[120vh] h-[100vh] my-course__section-4 flex justify-center items-center relative">
-        <div className="container my-course__section-4-content relative">
-          <img
-            src={coursebg}
-            alt=""
-            className="sm:w-full min-[376px]:w-auto w-auto min-[376px]:h-[115vh] h-[100vh] xl:h-auto lg:h-[80vh] md:h-[60vh] my-course__section-4-content-img absolute top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-          />
-          <div className="container mx-auto px-4 min-[376px]:px-9 sm:px-0 my-course__section-4-content-details absolute top-[0] left-[50%] translate-x-[-50%] translate-y-[-50%] ">
-            <div className="grid justify-items-center">
-              <div className="lg:h-[150px] md:h-[100px] relative lg:w-auto md:w-[50%] min-[376px]:h-[100px] min-[321px]:h-[100px] h-[75px] w-auto min-[376px]:w-auto">
-                <img
-                  src={decor1}
-                  alt=""
-                  className="lg:w-[30%] md:w-[30%] min-[376px]:w-[25%] w-[25%] h-auto relative sm:translate-x-[0] sm:translate-y-[0] min-[376px]:translate-x-[40%] translate-x-[40%] min-[376px]:translate-y-[20%] translate-y-[20%]"
-                />
-                <h3 className="xl:text-4xl lg:text-3xl md:text-2xl min-[376px]:text-xl min-[321px]:text-xl text-lg md:w-[100%] text-[#A14A21] font-bold absolute lg:bottom-[20%] md:bottom-[5%] min-[376px]:bottom-[10%] min-[321px]:bottom-[10%] bottom-[10%] left-[50%] translate-x-[-50%] min-[321px]:translate-y-[-50%]">
-                  Đối tượng học viên
-                </h3>
+      <div className="h-fit my-course__section-4 flex justify-center items-center relative overflow-y-auto">
+        <div className="relative container mx-auto my-course__section-4-content flex justify-center items-center h-fit overflow-y-auto 2xl:py-20 xl:py-16 lg:py-10 md:py-8 py-6">
+          <div className="grid justify-items-center content-center relative">
+            <div className="relative 2xl:w-[35vw] xl:w-[35vw] lg:w-[35vw] md:w-[40vw] min-[376px]:w-[60vw] w-[70vw] 2xl:h-[100px]">
+              <img
+                src={nguoi}
+                alt=""
+                className="relative h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
+              />
+              <h3 className="absolute text-left w-full top-[50%] 2xl:left-[75%] xl:left-[75%] lg:left-[75%] md:left-[80%] min-[376px]:left-[75%] left-[75%] translate-x-[-50%] translate-y-[-50%] 2xl:text-5xl xl:text-4xl lg:text-2xl md:text-xl min-[376px]:text-lg text-lg font-bold text-[#A14A21]">
+                Đối tượng học viên
+              </h3>
+            </div>
+            <p className="text-left 2xl:w-[60vw] xl:w-[65vw] lg:w-[70vw] md:w-[70vw] min-[376px]:w-[60vw] w-[70vw] xl:text-lg 2xl:text-xl lg:text-base md:text-sm min-[376px]:text-sm text-sm xl:mt-4 lg:mt-4 md:mt-2 min-[376px]:mt-2">
+              Dành cho người có đam mê nghiên cứu bộ môn Nhân tướng, người đang
+              hoạt động trong các lĩnh vực tiếp xúc thường xuyên với con người
+              như: tư vấn, nhân sự, quản lý, bán hàng, làm đẹp... hoặc bất cứ ai
+              mong muốn phát triển kỹ năng nhận định và đánh giá con người trong
+              các mối quan hệ xã hội, đồng thời cải thiện nhân tướng cho chính
+              bản thân.
+            </p>
+            <div className="relative 2xl:w-[35vw] xl:w-[35vw] lg:w-[35vw] md:w-[40vw] min-[376px]:w-[60vw] w-[70vw] 2xl:h-[100px] xl:h-[75px] lg:h-[60px] md:h-[55px] min-[376px]:h-[50px] h-[40px] grid justify-items-center content-center">
+              <h3 className="relative text-center w-full 2xl:text-5xl xl:text-4xl lg:text-2xl md:text-xl min-[376px]:text-lg text-lg font-bold text-[#A14A21]">
+                Kết quả kỳ vọng
+              </h3>
+              <img
+                src={but}
+                alt=""
+                className="absolute translate-x-[-50%] translate-y-[-50%] xl:right-[-20px] xl:bottom-[-35px] 2xl:bottom-[-40px] lg:right-[-20px] lg:bottom-[-30px] md:right-[-40px] md:bottom-[-30px] min-[376px]:right-[-30px] min-[376px]:bottom-[-30px] right-[-40px] bottom-[-30px] h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
+              />
+            </div>
+            <ul className="text-left list-none">
+              <li>
+                <p className="2xl:mb-2 text-left 2xl:w-[60vw] xl:w-[65vw] lg:w-[70vw] md:w-[70vw] min-[376px]:w-[60vw] w-[70vw] xl:text-lg 2xl:text-xl lg:text-base md:text-sm min-[376px]:text-sm text-sm mt-2">
+                  <span className="font-bold">
+                    1. Nhận định và phân tích nhanh về khuôn mặt:{" "}
+                  </span>
+                  Học viên sẽ được trang bị những kỹ năng cần thiết để nhận biết
+                  và phân tích bất kỳ khuôn mặt nào, thông qua đó dự đoán được
+                  vận mệnh, sức khỏe, tình cảm của một người.
+                </p>
+              </li>
+              <li>
+                <p className="2xl:mb-2 text-left 2xl:w-[60vw] xl:w-[65vw] lg:w-[70vw] md:w-[70vw] min-[376px]:w-[60vw] w-[70vw] xl:text-lg 2xl:text-xl lg:text-base md:text-sm min-[376px]:text-sm text-sm">
+                  <span className="font-bold">
+                    2. Tăng cường khả năng thấu hiểu đối phương trong giao tiếp:{" "}
+                  </span>
+                  Khóa học sẽ giúp học viên nâng cao khả năng nắm bắt tâm lý
+                  trong giao tiếp, thông qua đó tùy chọn cách ứng xử cho phù hợp
+                  với từng hoàn cảnh, con người cụ thể.
+                </p>
+              </li>
+              <li>
+                <p className="2xl:mb-2 text-left 2xl:w-[60vw] xl:w-[65vw] lg:w-[70vw] md:w-[70vw] min-[376px]:w-[60vw] w-[70vw] xl:text-lg 2xl:text-xl lg:text-base md:text-sm min-[376px]:text-sm text-sm">
+                  <span className="font-bold">
+                    3. Tăng cường khả năng phân tích và quản lý nhân sự:{" "}
+                  </span>
+                  Học viên sẽ được học cách phân tích và đánh giá nhanh chóng
+                  năng lực của người đối diện, giúp họ đưa ra quyết định chính
+                  xác trong việc lựa chọn nhân sự hay chọn người cộng tác.
+                </p>
+              </li>
+              <li>
+                <p className="2xl:mb-2 text-left 2xl:w-[60vw] xl:w-[65vw] lg:w-[70vw] md:w-[70vw] min-[376px]:w-[60vw] w-[70vw] xl:text-lg 2xl:text-xl lg:text-base md:text-sm min-[376px]:text-sm text-sm">
+                  <span className="font-bold">
+                    4. Tự hiểu và phát triển bản thân:{" "}
+                  </span>
+                  Khóa học sẽ giúp học viên hiểu rõ hơn về bản thân, từ đó phát
+                  triển mạnh hơn các tố chất và kỹ năng cá nhân.
+                </p>
+              </li>
+            </ul>
+            <div className="lg:w-full md:w-[80vw] w-[90vw] flex items-center justify-start h-auto bg-[#4E4836] rounded-full border-[#DBAF6D] border-2 mt-8">
+              <div className="2xl:p-4 xl:p-4 md:p-3 p-3 bg-[#4E4836] rounded-full border-2 border-[#DBAF6D]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="comments"
+                  className="h-auto 2xl:w-[50px] xl:w-[40px] md:w-[30px] min-[376px]:w-[40px] w-[30px]"
+                >
+                  <path
+                    fill="#fff"
+                    d="M20.61,19.19A7,7,0,0,0,17.87,8.62,8,8,0,1,0,3.68,14.91L2.29,16.29a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,18H8.69A7,7,0,0,0,15,22h6a1,1,0,0,0,.92-.62,1,1,0,0,0-.21-1.09ZM8,15a6.63,6.63,0,0,0,.08,1H5.41l.35-.34a1,1,0,0,0,0-1.42A5.93,5.93,0,0,1,4,10a6,6,0,0,1,6-6,5.94,5.94,0,0,1,5.65,4c-.22,0-.43,0-.65,0A7,7,0,0,0,8,15ZM18.54,20l.05.05H15a5,5,0,1,1,3.54-1.46,1,1,0,0,0-.3.7A1,1,0,0,0,18.54,20Z"
+                  ></path>
+                </svg>
               </div>
-              <p className="text-left sm:w-[70%] min-[376px]:w-[80%] w-[80%] xl:text-xl lg:text-base md:text-sm min-[376px]:text-base text-sm">
-                Dành cho người có đam mê nghiên cứu bộ môn Nhân tướng, người
-                đang hoạt động trong các lĩnh vực tiếp xúc thường xuyên với con
-                người như: tư vấn, nhân sự, quản lý, bán hàng, làm đẹp... hoặc
-                bất cứ ai mong muốn phát triển kỹ năng nhận định và đánh giá con
-                người trong các mối quan hệ xã hội, đồng thời cải thiện nhân
-                tướng cho chính bản thân.
+              <p className="2xl:text-xl xl:text-lg md:text-base min-[376px]:text-sm text-xs xl:px-4 md:px-4 min-[376px]:px-4 px-2 text-white font-bold text-left">
+                Tìm hiểu thêm về Khoá học tại{" "}
+                <span className="text-[#E7C99D] underline">
+                  <a href="/">Các câu hỏi thường gặp</a>
+                </span>{" "}
+                hoặc liên hệ Team Đào tạo qua Zalo:{" "}
+                <span className="text-[#E7C99D] underline">
+                  <a href="+84 938439554">093.843.9554</a>
+                </span>{" "}
               </p>
-              <div className="lg:h-[100px] md:h-[75px] min-[376px]:h-[75px] min-[321px]:h-[75px] h-[88px] relative">
-                <h3 className="xl:text-4xl lg:text-3xl md:text-2xl min-[376px]:text-xl min-[321px]:text-xl text-lg md:w-[100%] text-[#A14A21] font-bold absolute sm:bottom-[30%] min-[376px]:bottom-[10%] min-[321px]:bottom-[10%] bottom-[20%] sm:translate-x-[0] sm:translate-y-[0] sm:left-[0] min-[376px]:left-[10%] min-[321px]:left-[10%] left-[5%] min-[376px]:translate-x-[50%] translate-x-[50%] min-[376px]:translate-y-[-50%] translate-y-[-50%]">
-                  Kết quả kỳ vọng
-                </h3>
-                <img
-                  src={decor3}
-                  alt=""
-                  className="lg:w-[25%] md:w-[15%] min-[376px]:w-[30%] w-[30%] h-auto relative lg:translate-x-[250%] sm:translate-x-[400%] min-[376px]:translate-x-[180%] translate-x-[180%] min-[321px]:translate-y-[-15%] translate-y-[0] lg:translate-y-[-10%] sm:translate-y-[0]"
-                />
-              </div>
-              <ul className="list-none sm:w-[70%] min-[376px]:w-[80%] w-[80%]">
-                <li>
-                  <p className="xl:text-xl lg:text-base sm:text-sm min-[376px]:text-base text-sm">
-                    <span className="font-bold">
-                      1. Nhận định và phân tích nhanh về khuôn mặt:{" "}
-                    </span>
-                    Học viên sẽ được trang bị những kỹ năng cần thiết để nhận
-                    biết và phân tích bất kỳ khuôn mặt nào, thông qua đó dự đoán
-                    được vận mệnh, sức khỏe, tình cảm của một người.
-                  </p>
-                </li>
-                <li>
-                  <p className="xl:text-xl lg:text-base sm:text-sm min-[376px]:text-base text-sm">
-                    <span className="font-bold">
-                      2. Tăng cường khả năng thấu hiểu đối phương trong giao
-                      tiếp:{" "}
-                    </span>
-                    Khóa học sẽ giúp học viên nâng cao khả năng nắm bắt tâm lý
-                    trong giao tiếp, thông qua đó tùy chọn cách ứng xử cho phù
-                    hợp với từng hoàn cảnh, con người cụ thể.
-                  </p>
-                </li>
-                <li>
-                  <p className="xl:text-xl lg:text-base sm:text-sm min-[376px]:text-base text-sm">
-                    <span className="font-bold">
-                      3. Tăng cường khả năng phân tích và quản lý nhân sự:{" "}
-                    </span>
-                    Học viên sẽ được học cách phân tích và đánh giá nhanh chóng
-                    năng lực của người đối diện, giúp họ đưa ra quyết định chính
-                    xác trong việc lựa chọn nhân sự hay chọn người cộng tác.
-                  </p>
-                </li>
-                <li>
-                  <p className="xl:text-xl lg:text-base sm:text-sm min-[376px]:text-base text-sm">
-                    <span className="font-bold">
-                      4. Tự hiểu và phát triển bản thân:{" "}
-                    </span>
-                    Khóa học sẽ giúp học viên hiểu rõ hơn về bản thân, từ đó
-                    phát triển mạnh hơn các tố chất và kỹ năng cá nhân.
-                  </p>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
