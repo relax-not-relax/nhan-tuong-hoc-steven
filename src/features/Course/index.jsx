@@ -61,9 +61,9 @@ function CourseFeature() {
             </span>
             <p className="text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl w-11/12 md:w-9/12 lg:w-8/12 text-white mb-8 sm:mb-14 md:mb-10 xl:mb-8 prevent-select">
               Khóa học bao gồm những kiến thức Nhân Tướng từ cơ bản đến nâng
-              cao, đầy đủ 4 yếu tố cốt lỗi nhất của bộ môn này: hình tướng, sắc
+              cao, đầy đủ 4 yếu tố cốt lõi nhất của bộ môn này: hình tướng, sắc
               tướng, thanh tướng & thần tướng. Toàn bộ kiến thức được đúc kết từ
-              nghiên cứu chuyên sâu và khảo sát dựa trên thực tế’ nhằm giúp bạn
+              nghiên cứu chuyên sâu và khảo sát dựa trên thực tế nhằm giúp bạn
               phát triển kỹ năng phân tích và thấu hiểu về con người.
             </p>
             <p className="text-xl min-[376px]:text-lg md:text-3xl xl:text-2xl mb-4 sm:mb-8 md:mb-6 xl:mb-6 prevent-select text-white font-semibold">
@@ -211,7 +211,7 @@ function CourseFeature() {
               <img
                 src={but}
                 alt=""
-                className="absolute translate-x-[-50%] translate-y-[-50%] xl:right-[-20px] xl:bottom-[-35px] 2xl:bottom-[-40px] lg:right-[-20px] lg:bottom-[-30px] md:right-[-40px] md:bottom-[-30px] min-[376px]:right-[-30px] min-[376px]:bottom-[-30px] right-[-40px] bottom-[-30px] h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
+                className="absolute translate-x-[-50%] translate-y-[-50%] xl:right-[-40px] xl:bottom-[-35px] 2xl:bottom-[-40px] lg:right-[-20px] lg:bottom-[-30px] md:right-[-40px] md:bottom-[-30px] min-[376px]:right-[-30px] min-[376px]:bottom-[-30px] right-[-40px] bottom-[-30px] h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
               />
             </div>
             <ul className="text-left list-none">
