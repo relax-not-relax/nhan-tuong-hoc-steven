@@ -1,0 +1,38 @@
+.my-question {
+  &__section-1 {
+    background: linear-gradient(#000000, #4e4836);
+    position: relative;
+    &-bg {
+      background: url("../../images/avatar.jpg") no-repeat !important;
+      background-size: cover !important;
+      opacity: 0.1;
+      background-position: center !important;
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+    }
+    &-content {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  &__section-2 {
+    &-card {
+      .q-card {
+        transform-style: preserve-3d;
+        transition: all 1s ease;
+        &-front {
+          backface-visibility: hidden;
+          background: linear-gradient(#000000, #4e4836);
+        }
+        &-back {
+          backface-visibility: hidden;
+          transform: rotateY(180deg);
+        }
+        &:hover {
+          transform: rotateY(180deg);
+        }
+      }
+    }
+  }
+}

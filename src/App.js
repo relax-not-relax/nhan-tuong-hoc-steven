@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import HomeFeature from './features/Home';
 import CourseFeature from './features/Course';
+import QuestionFeature from './features/Question';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomeFeature />} />
         <Route path='/khoa-hoc' element={<CourseFeature />} />
+        <Route path='/cau-hoi-thuong-gap' element={<QuestionFeature />} />
       </Routes>
       <Footer />
     </div>
