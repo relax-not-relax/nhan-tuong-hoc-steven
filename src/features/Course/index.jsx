@@ -211,7 +211,7 @@ function CourseFeature() {
               <img
                 src={but}
                 alt=""
-                className="absolute translate-x-[-50%] translate-y-[-50%] xl:right-[-40px] xl:bottom-[-35px] 2xl:bottom-[-40px] lg:right-[-20px] lg:bottom-[-30px] md:right-[-40px] md:bottom-[-30px] min-[376px]:right-[-30px] min-[376px]:bottom-[-30px] right-[-40px] bottom-[-30px] h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
+                className="absolute translate-x-[-50%] translate-y-[-50%] xl:right-[-70px] xl:bottom-[-35px] 2xl:bottom-[-40px] 2xl:right-[-30px] lg:right-[-20px] lg:bottom-[-30px] md:right-[-40px] md:bottom-[-30px] min-[376px]:right-[-30px] min-[376px]:bottom-[-30px] right-[-40px] bottom-[-30px] h-auto 2xl:w-[200px] xl:w-[150px] lg:w-[130px] md:w-[130px] min-[376px]:w-[100px] w-[100px]"
               />
             </div>
             <ul className="text-left list-none">
