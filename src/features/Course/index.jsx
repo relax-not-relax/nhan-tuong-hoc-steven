@@ -272,7 +272,7 @@ function CourseFeature() {
               <p className="2xl:text-xl xl:text-lg md:text-base min-[376px]:text-sm text-xs xl:px-4 md:px-4 min-[376px]:px-4 px-2 text-white font-bold text-left">
                 Tìm hiểu thêm về Khoá học tại{" "}
                 <span className="text-[#E7C99D] underline">
-                  <a href="/">Các câu hỏi thường gặp</a>
+                  <a href="/cau-hoi-thuong-gap">Các câu hỏi thường gặp</a>
                 </span>{" "}
                 hoặc liên hệ Team Đào tạo qua Zalo:{" "}
                 <span className="text-[#E7C99D] underline">
