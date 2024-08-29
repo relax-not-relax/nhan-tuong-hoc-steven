@@ -7,6 +7,7 @@ import HomeFeature from './features/Home';
 import CourseFeature from './features/Course';
 import QuestionFeature from './features/Question';
 import ConsultantFeature from './features/Consultant';
+import ContactFeature from './features/Contact';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/khoa-hoc' element={<CourseFeature />} />
         <Route path='/cau-hoi-thuong-gap' element={<QuestionFeature />} />
         <Route path='/tu-van' element={<ConsultantFeature />} />
+        <Route path='/lien-he' element={<ContactFeature />} />
       </Routes>
       <Footer />
     </div>

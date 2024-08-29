@@ -19,12 +19,15 @@ export default function Footer() {
           <div className="flex-auto sm:flex-initial sm:w-72 columns-3xs">
             <ul className="list-none">
               <li className="text-left">
-                <a href="/" className="text-base sm:text-lg my-footer-el">
+                <a href="/tu-van" className="text-base sm:text-lg my-footer-el">
                   Đặt lịch tư vấn 1-1
                 </a>
               </li>
               <li className="text-left">
-                <a href="/" className="text-base sm:text-lg my-footer-el">
+                <a
+                  href="/khoa-hoc"
+                  className="text-base sm:text-lg my-footer-el"
+                >
                   Các khoá học
                 </a>
               </li>
@@ -34,7 +37,10 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-left">
-                <a href="/" className="text-base sm:text-lg my-footer-el">
+                <a
+                  href="/lien-he"
+                  className="text-base sm:text-lg my-footer-el"
+                >
                   Về chúng tôi
                 </a>
               </li>
