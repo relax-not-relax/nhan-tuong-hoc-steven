@@ -4,6 +4,7 @@
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
   }
+  scroll-behavior: smooth;
   &__section-1 {
     background: linear-gradient(#000000, #4e4836);
     position: relative;

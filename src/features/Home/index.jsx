@@ -13,11 +13,20 @@ import blog3 from "../../images/blog-3.jpg";
 import avatar from "../../images/avatar.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 function HomeFeature() {
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
   }, []);
+
+  const navigate = useNavigate();
+  const handleNavigate = (link) => {
+    navigate(link, { replace: true });
+    scroll.scrollToTop();
+  };
+
   return (
     <div className="home-option">
       <div className="my-home h-screen px-4 min-[376px]:px-0 sm:px-0">
@@ -29,6 +38,7 @@ function HomeFeature() {
           <button
             type="button"
             className="prevent-select my-home-btn-1 text-sm min-[376px]:text-sm sm:text-lg md:text-lg xl:text-xl py-2 px-3 min-[376px]:py-2 min-[376px]:px-3 md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 mb-2 min-[375px]:mb-0"
+            onClick={() => handleNavigate("/khoa-hoc")}
           >
             Đăng ký khóa học
           </button>
@@ -36,6 +46,7 @@ function HomeFeature() {
           <button
             type="button"
             className=" prevent-select my-home-btn-1 text-sm min-[376px]:text-sm sm:text-lg md:text-lg xl:text-xl px-5 min-[376px]:px-5 md:px-8 xl:py-[0.6rem] xl:px-10 mb-2 min-[375px]:mb-0"
+            onClick={() => handleNavigate("/tu-van")}
           >
             Đặt lịch tư vấn
           </button>
@@ -64,8 +75,9 @@ function HomeFeature() {
             <button
               type="button"
               className="prevent-select my-home__section-2-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl py-2 px-3 min-[376px]:py-2 min-[376px]:px-3 md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7"
+              onClick={() => handleNavigate("/lien-he")}
             >
-              Đăng ký khóa học
+              Tìm hiểu thêm
             </button>
           </div>
         </div>
@@ -193,6 +205,7 @@ function HomeFeature() {
             <button
               type="button"
               className="prevent-select my-home__section-4-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3"
+              onClick={() => handleNavigate("/tu-van")}
             >
               Đặt lịch tại đây
             </button>
