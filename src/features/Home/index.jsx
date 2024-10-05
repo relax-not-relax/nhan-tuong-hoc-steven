@@ -55,12 +55,7 @@ function HomeFeature() {
       <div className="py-10 min-[376px]:py-12 md:py-16 xl:py-24 h-fit my-home__section-2 flex justify-center items-center">
         <div className="container mx-auto px-4 min-[376px]:px-9 sm:px-0">
           <div className="grid justify-items-center">
-            <img
-              src={eye}
-              alt=""
-              srcset=""
-              className="h-32 object-cover mb-5"
-            />
+            <img src={eye} alt="" className="h-32 object-cover mb-5" />
             <span className="text-xl min-[376px]:text-xl md:text-3xl xl:text-4xl my-home__section-2-title-1 prevent-select">
               “Mình là Steven,
             </span>
