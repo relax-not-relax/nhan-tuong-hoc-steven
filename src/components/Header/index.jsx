@@ -116,7 +116,7 @@ export default function Header() {
                   Cửa hàng
                 </a>
                 <a
-                  href="/"
+                  href="/thu-vien"
                   className="-mx-3 block rounded-lg px-3 py-0 text-base font-semibold leading-7 text-[#002d26] hover:bg-gray-50"
                 >
                   Thư viện
