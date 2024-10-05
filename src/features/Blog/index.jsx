@@ -35,7 +35,7 @@ export function BlogFeature() {
               </p>
               <button
                 type="button"
-                className=" prevent-select my-blog__section-1-btn-1 text-sm min-[376px]:text-sm sm:text-lg md:text-lg xl:text-xl px-5 min-[376px]:px-5 md:px-8 xl:py-[0.6rem] xl:px-10 mb-2 min-[375px]:mb-0"
+                className=" prevent-select my-blog__section-1-btn-1 text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl py-2 px-3 min-[376px]:py-2 min-[376px]:px-3 md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7"
                 onClick={() => handleNavigate("/lien-he")}
               >
                 Tìm hiểu thêm
