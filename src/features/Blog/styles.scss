@@ -34,3 +34,20 @@
     }
   }
 }
+
+.blog-details {
+  scroll-behavior: smooth;
+  &__section-1 {
+    background: linear-gradient(#000000, #4e4836);
+    position: relative;
+    &-bg {
+      background: url("../../images/avatar.jpg") no-repeat !important;
+      background-size: cover !important;
+      opacity: 0.1;
+      background-position: center !important;
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+    }
+  }
+}

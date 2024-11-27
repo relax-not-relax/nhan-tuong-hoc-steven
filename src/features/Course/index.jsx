@@ -13,11 +13,18 @@ import decor2 from "../../images/decor-2.png";
 import but from "../../images/but.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from "react-router-dom";
+import { animateScroll as scroll } from "react-scroll";
 
 function CourseFeature() {
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
   }, []);
+  const navigate = useNavigate();
+  const handleNavigate = (link) => {
+    navigate(link, { replace: true });
+    scroll.scrollToTop();
+  };
   return (
     <div className="my-course">
       <div className="my-course__section-1 h-screen">
@@ -104,7 +111,7 @@ function CourseFeature() {
                         4 buổi học, 2 tiếng / buổi
                       </p>
                     </div>
-                    <div className="fee-banner-content-second xl:mt-4 md:mt-3 w-[80%]">
+                    <div className="fee-banner-content-second xl:mt-4 md:mt-3 w-[80%] grow">
                       <ul className="list-disc">
                         <li className="xl:text-lg min-[376px]:text-base text-sm font-medium">
                           Tổng quan về Nhân tướng học
@@ -458,6 +465,7 @@ function CourseFeature() {
               <button
                 type="button"
                 className="prevent-select my-course__section-5-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-12 xl:py-[0.6rem] xl:px-16 min-[376px]:py-2 min-[376px]:px-5 py-2 px-5"
+                onClick={() => handleNavigate("/thu-vien")}
               >
                 Xem tất cả
               </button>
