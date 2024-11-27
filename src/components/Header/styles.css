@@ -1,0 +1,29 @@
+.login-div {
+  background-color: rgba(78, 72, 54, 0.4235294118);
+  border-radius: 50px;
+  border: #dbaf6d 1px solid;
+  transition: 0.4s ease-in-out;
+}
+.login-div:hover {
+  box-shadow: 0 0 30px 20px #c2a759;
+}
+
+.page-group {
+  background-color: rgba(78, 72, 54, 0.4235294118) !important;
+  border-radius: 50px !important;
+  border: #dbaf6d 1px solid;
+  transition: 0.5s ease-in-out;
+}
+.page-group a:hover,
+.page-group #active {
+  border-radius: 50px !important;
+  border-inline: #dbaf6d 2px solid;
+}
+
+.my-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}/*# sourceMappingURL=styles.css.map */

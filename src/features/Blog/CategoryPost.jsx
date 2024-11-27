@@ -1,36 +1,96 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 CategoryPost.propTypes = {
   category: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
-function CategoryPost({ category, amount }) {
-  return (
-    <div class="flex items-center justify-between pb-3 pt-3 last:pb-0">
-      <div class="flex items-center gap-x-3">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="size-4"
-          color="bg-black"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m8.25 4.5 7.5 7.5-7.5 7.5"
-          />
-        </svg>
+function CategoryPost({ category, amount, index }) {
+  const toggleAccordion = (index) => {
+    const content = document.getElementById(`content-${index}`);
+    const icon = document.getElementById(`icon-${index}`);
 
-        <h6 class="text-slate-800 font-semibold lg:text-lg text-base text-start line-clamp-1">
-          {category}
-        </h6>
+    // SVG for Down icon
+    const downSVG = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+      </svg>
+    `;
+
+    // SVG for Up icon
+    const upSVG = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+        <path fill-rule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+      </svg>
+    `;
+
+    // Toggle the content's max-height for smooth opening and closing
+    if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+      content.style.maxHeight = "0";
+      icon.innerHTML = upSVG;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      icon.innerHTML = downSVG;
+    }
+  };
+
+  return (
+    <div class="flex items-center justify-start last:pb-0">
+      <div className="w-full">
+        <button
+          onClick={() => {
+            toggleAccordion(index);
+          }}
+          class="w-full flex justify-between items-center py-5 text-slate-800"
+        >
+          <span className="text-base font-semibold">{category.category}</span>
+          <span
+            id={`icon-${index}`}
+            class="text-slate-800 transition-transform duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="w-4 h-4"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          id={`content-${index}`}
+          class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+        >
+          <div class="pb-5 flex flex-wrap gap-2">
+            <button
+              class="rounded-full border border-slate-300 py-1 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-[#005245] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              type="button"
+            >
+              Tất cả
+            </button>
+            {category.keywords.map((keyword, index) => {
+              return (
+                <div key={index}>
+                  <button
+                    class="rounded-full border border-slate-300 py-1 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-[#005245] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                    type="button"
+                  >
+                    {keyword}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <h6 class="text-slate-600 font-medium">({amount})</h6>
     </div>
   );
 }

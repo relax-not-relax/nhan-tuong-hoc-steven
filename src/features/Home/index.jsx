@@ -385,6 +385,7 @@ function HomeFeature() {
               <button
                 type="button"
                 className="prevent-select my-home__section-5-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-12 xl:py-[0.6rem] xl:px-16 min-[376px]:py-2 min-[376px]:px-5 py-2 px-5"
+                onClick={() => handleNavigate("/thu-vien")}
               >
                 Xem tất cả
               </button>

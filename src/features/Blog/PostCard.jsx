@@ -2,29 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 
 PostCard.propTypes = {
-  thumbnail: PropTypes.string.isRequired,
-  releaseDate: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  blog: PropTypes.object.isRequired,
 };
 
-export function PostCard({ thumbnail, releaseDate, title, content }) {
+export function PostCard({ blog }) {
   return (
-    <a href="/" className="w-fit">
+    <a href={`thu-vien/${blog.id}`} className="w-fit">
       <div class="cursor-pointer group relative flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg xl:w-96 hover:shadow-lg transition-shadow duration-300">
         <div class="relative xl:h-56 m-2.5 overflow-hidden text-white rounded-md">
           <img
             class="transition-transform duration-500 ease-[cubic-bezier(0.25, 1, 0.5, 1)] transform group-hover:scale-110"
-            src={thumbnail}
-            alt={thumbnail}
+            src={blog.thumbnail}
+            alt={blog.thumbnail}
           />
         </div>
         <div class="p-4">
           <h6 class="mb-2 text-slate-800 xl:text-xl sm:text-lg text-base font-semibold xl:h-16 sm:h-12 text-start line-clamp-2">
-            {title}
+            {blog.title}
           </h6>
           <p class="text-slate-600 leading-normal font-light text-start line-clamp-3 sm:text-base text-sm">
-            {content}
+            {blog.content}
           </p>
         </div>
 
@@ -39,7 +36,7 @@ export function PostCard({ thumbnail, releaseDate, title, content }) {
               <span class="text-slate-800 font-semibold text-start">
                 Lewis Daniel
               </span>
-              <span class="text-slate-600 text-start">{releaseDate}</span>
+              <span class="text-slate-600 text-start">{blog.releaseDate}</span>
             </div>
           </div>
         </div>

@@ -1,0 +1,21 @@
+.my-footer {
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center top !important;
+}
+.my-footer-el {
+  font-weight: 600;
+  color: #005245;
+  transition: 0.5 ease-in-out;
+}
+.my-footer-el-title {
+  font-weight: 600;
+  color: #005245;
+}
+.my-footer-el:hover {
+  text-decoration: underline !important;
+}
+
+.copyright {
+  color: #827469 !important;
+}/*# sourceMappingURL=styles.css.map */

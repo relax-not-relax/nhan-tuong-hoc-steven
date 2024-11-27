@@ -48,13 +48,7 @@ export function BlogFeature() {
         <div className="container px-2 min-[376px]:px-4 lg:px-10 2xl:px-32 mx-auto flex sm:flex-nowrap flex-wrap columns-3xs justify-between h-auto">
           <div className="flex-auto xl:w-2/5 sm:w-[30%] gap-y-4 xl:gap-x-0 gap-x-4 grid sm:grid-cols-2 grid-cols-1 flex justify-start flex-wrap">
             {BlogData.map((val, index) => (
-              <PostCard
-                key={index}
-                thumbnail={val.thumbnail}
-                releaseDate={val.releaseDate}
-                title={val.title}
-                content={val.content}
-              />
+              <PostCard key={index} blog={val} />
             ))}
           </div>
           <div className="flex-1 xl:ps-0 sm:ps-4 sm:mt-0 mt-8">
@@ -112,8 +106,9 @@ export function BlogFeature() {
                   {CategoriesData.map((val, index) => (
                     <CategoryPost
                       key={index}
-                      category={val.category}
+                      category={val}
                       amount={val.amount}
+                      index={index}
                     />
                   ))}
                 </div>

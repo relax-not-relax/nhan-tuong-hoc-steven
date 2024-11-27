@@ -1,0 +1,35 @@
+.my-question {
+  scroll-behavior: smooth;
+}
+.my-question__section-1 {
+  background: linear-gradient(#000000, #4e4836);
+  position: relative;
+}
+.my-question__section-1-bg {
+  background: url("../../images/avatar.jpg") no-repeat !important;
+  background-size: cover !important;
+  opacity: 0.1;
+  background-position: center !important;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+}
+.my-question__section-1-content {
+  position: relative;
+  z-index: 1;
+}
+.my-question__section-2-card .q-card {
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+}
+.my-question__section-2-card .q-card-front {
+  backface-visibility: hidden;
+  background: linear-gradient(#000000, #4e4836);
+}
+.my-question__section-2-card .q-card-back {
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+.my-question__section-2-card .q-card:hover {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=styles.css.map */
