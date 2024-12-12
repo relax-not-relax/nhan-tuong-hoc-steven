@@ -1,14 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 CategoryPost.propTypes = {
   category: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
   index: PropTypes.number.isRequired,
 };
 
-function CategoryPost({ category, amount, index }) {
+function CategoryPost({ category, index }) {
+  const navigate = useNavigate();
+
   const toggleAccordion = (index) => {
     const content = document.getElementById(`content-${index}`);
     const icon = document.getElementById(`icon-${index}`);
@@ -46,7 +46,7 @@ function CategoryPost({ category, amount, index }) {
           }}
           class="w-full flex justify-between items-center py-5 text-slate-800"
         >
-          <span className="text-base font-semibold">{category.category}</span>
+          <span className="text-base font-semibold">{category.name}</span>
           <span
             id={`icon-${index}`}
             class="text-slate-800 transition-transform duration-300"
@@ -73,17 +73,27 @@ function CategoryPost({ category, amount, index }) {
             <button
               class="rounded-full border border-slate-300 py-1 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-[#005245] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              onClick={() => {
+                navigate(
+                  `/thu-vien/chu-de?topic=${category.id}&pageNumber=0&pageSize=8&sort=id,desc`
+                );
+              }}
             >
               Tất cả
             </button>
-            {category.keywords.map((keyword, index) => {
+            {category.hashTags.map((hashtag) => {
               return (
-                <div key={index}>
+                <div key={hashtag.id}>
                   <button
                     class="rounded-full border border-slate-300 py-1 px-4 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-[#005245] focus:text-white focus:bg-slate-800 focus:border-slate-800 active:border-slate-800 active:text-white active:bg-slate-800 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                     type="button"
+                    onClick={() => {
+                      navigate(
+                        `/thu-vien/chu-de?topic=${category.id}&hashtag=${hashtag.id}&pageNumber=0&pageSize=8&sort=id,desc`
+                      );
+                    }}
                   >
-                    {keyword}
+                    {hashtag.name}
                   </button>
                 </div>
               );
