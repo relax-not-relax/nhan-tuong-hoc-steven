@@ -1,0 +1,13 @@
+.banner {
+  background: url("../../images/banner.jpg");
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  .banner-title {
+    background: linear-gradient(to bottom right, #ffffff, #dbaf6d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+  }
+}

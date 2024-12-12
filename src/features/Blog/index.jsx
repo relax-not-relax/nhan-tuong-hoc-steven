@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll";
 import { BlogData } from "./BlogData";
 import { PostCard } from "./PostCard";
@@ -9,6 +9,10 @@ import logo from "../../images/logo_bg.png";
 import PopularPost from "./PopularPost";
 import { CategoriesData } from "./CategoriesData";
 import CategoryPost from "./CategoryPost";
+import blogAPI from "../../api/blogApi";
+import formatNormalDate from "../../utils/formatNormalDate";
+import { Button } from "@material-tailwind/react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export function BlogFeature() {
   const navigate = useNavigate();
@@ -16,6 +20,162 @@ export function BlogFeature() {
     navigate(link, { replace: true });
     scroll.scrollToTop();
   };
+
+  const [topics, setTopics] = useState([]);
+  const [features, setFeatures] = useState([]);
+  const [totalPages, setTotalPages] = useState(0); // Tổng số trang
+  const [currentPage, setCurrentPage] = useState(0); // Trang hiện tại
+  const [isLoading, setIsLoading] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Hàm chuyển trang
+  const handlePageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      const pageSet = page - 1;
+      searchParams.set("pageNumber", pageSet);
+      setSearchParams(searchParams);
+    }
+  };
+
+  // Tạo danh sách các nút phân trang
+  const generatePagination = () => {
+    const pages = [];
+    const maxVisiblePages = 1; // Số trang hiển thị ở giữa (trước/sau trang hiện tại)
+
+    if (totalPages <= 1) {
+      pages.push(
+        <button
+          key={1}
+          className={`w-10 h-10 flex justify-center items-center border-2 rounded-full border-[#005245] text-[#005245] font-medium`}
+        >
+          1
+        </button>
+      );
+      return pages;
+    }
+
+    // Hiển thị trang đầu tiên
+    pages.push(
+      <button
+        key={1}
+        onClick={() => handlePageChange(1)}
+        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
+          currentPage === 1
+            ? "border-[#005245] text-[#005245] font-medium"
+            : "text-gray-700"
+        }`}
+      >
+        1
+      </button>
+    );
+
+    // Hiển thị dấu "..." nếu cần
+    if (currentPage > maxVisiblePages + 1) {
+      pages.push(
+        <span
+          key="start-dots"
+          className="w-10 h-10 flex justify-center items-center"
+        >
+          ...
+        </span>
+      );
+    }
+
+    // Hiển thị các trang ở giữa
+    const start = Math.max(2, currentPage - maxVisiblePages);
+    const end = Math.min(totalPages - 1, currentPage + maxVisiblePages);
+
+    for (let i = start; i <= end; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
+            currentPage === i
+              ? "border-[#005245] text-[#005245] font-medium"
+              : "text-gray-700"
+          }`}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    // Hiển thị dấu "..." nếu cần
+    if (currentPage < totalPages - maxVisiblePages) {
+      pages.push(
+        <span
+          key="end-dots"
+          className="w-10 h-10 flex justify-center items-center"
+        >
+          ...
+        </span>
+      );
+    }
+
+    // Hiển thị trang cuối cùng
+    pages.push(
+      <button
+        key={totalPages}
+        onClick={() => handlePageChange(totalPages)}
+        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
+          currentPage === totalPages
+            ? "border-[#005245] text-[#005245] font-medium"
+            : "text-gray-700"
+        }`}
+      >
+        {totalPages}
+      </button>
+    );
+
+    return pages;
+  };
+
+  useEffect(() => {
+    const fetchTopics = async () => {
+      try {
+        const res = await blogAPI.getTopic();
+        setTopics(res.data.content);
+      } catch (error) {
+        console.log("Failed to get topics: ", error);
+      }
+    };
+    const fetchFeatures = async () => {
+      try {
+        const resFeature = await blogAPI.getBlogFeature();
+        setFeatures(resFeature.data.content);
+      } catch (error) {
+        console.log("Failed to get features: ", error);
+      }
+    };
+    setIsLoading(true);
+    const fetchBlogs = async () => {
+      const pageSize = searchParams.get("pageSize") || 8;
+      const pageNumber = searchParams.get("pageNumber") || 0;
+      const sort = searchParams.get("sort") || "id,desc";
+      try {
+        const res = await blogAPI.getBlogs({
+          pageNumber: pageNumber,
+          pageSize: pageSize,
+          sort: sort,
+        });
+        setBlogs(res.data.content);
+        setTotalPages(res.data.totalPages);
+        const number = res.data.pageable.pageNumber + 1;
+        setCurrentPage(number);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("Failed to get blogs: ", error);
+      }
+    };
+
+    fetchTopics();
+    fetchFeatures();
+    fetchBlogs();
+  }, [searchParams]);
+
   return (
     <div className="my-blog">
       <div className="my-blog__section-1">
@@ -46,11 +206,47 @@ export function BlogFeature() {
       </div>
       <div className="my-blog__section-2 h-fit flex justify-center items-center sm:pt-20 sm:pb-8 pt-8 pb-2">
         <div className="container px-2 min-[376px]:px-4 lg:px-10 2xl:px-32 mx-auto flex sm:flex-nowrap flex-wrap columns-3xs justify-between h-auto">
-          <div className="flex-auto xl:w-2/5 sm:w-[30%] gap-y-4 xl:gap-x-0 gap-x-4 grid sm:grid-cols-2 grid-cols-1 flex justify-start flex-wrap">
-            {BlogData.map((val, index) => (
-              <PostCard key={index} blog={val} />
-            ))}
-          </div>
+          {isLoading && blogs.length === 0 ? (
+            <div className="flex-auto xl:w-2/5 sm:w-[30%] flex flex-row justify-center items-center h-24">
+              <div className="w-full h-32 flex flex-row justify-center items-center">
+                <svg
+                  class="text-gray-300 animate-spin"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                    stroke="currentColor"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-gray-900"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          ) : (
+            <div className="flex-auto xl:w-2/5 sm:w-[30%] gap-y-4 gap-x-4 grid sm:grid-cols-2 grid-cols-1 flex justify-start flex-wrap pe-12">
+              {blogs.map((val, index) => (
+                <PostCard
+                  key={index}
+                  blog={val}
+                  urlTarget={`thu-vien/${val.postProperties.id}`}
+                />
+              ))}
+            </div>
+          )}
+
           <div className="flex-1 xl:ps-0 sm:ps-4 sm:mt-0 mt-8">
             <div class="relative grid xl:h-[35rem] lg:h-[30rem] sm:h-[25rem] max-w-lg flex-col items-end justify-center overflow-hidden rounded-lg bg-white">
               <div
@@ -86,14 +282,48 @@ export function BlogFeature() {
                   </a>
                 </div>
                 <div class="divide-y divide-slate-200">
-                  {BlogData.slice(0, 5).map((val, index) => (
-                    <PopularPost
-                      key={index}
-                      thumbnail={val.thumbnail}
-                      title={val.title}
-                      releaseDate={val.releaseDate}
-                    />
-                  ))}
+                  {features.length === 0 ? (
+                    <div className="w-full h-32 flex flex-row justify-center items-center">
+                      <svg
+                        class="text-gray-300 animate-spin"
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                      >
+                        <path
+                          d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                          stroke="currentColor"
+                          stroke-width="5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                          stroke="currentColor"
+                          stroke-width="5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="text-gray-900"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <>
+                      {features.map((val) => (
+                        <PopularPost
+                          key={val.postProperties.id}
+                          urlTarget={`thu-vien/${val.postProperties.id}`}
+                          thumbnail={val.postProperties.thumnail}
+                          title={val.postProperties.title}
+                          releaseDate={formatNormalDate(
+                            val.postProperties.createTime
+                          )}
+                        />
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -103,38 +333,79 @@ export function BlogFeature() {
                   Khám phá
                 </h5>
                 <div class="divide-y divide-slate-200">
-                  {CategoriesData.map((val, index) => (
-                    <CategoryPost
-                      key={index}
-                      category={val}
-                      amount={val.amount}
-                      index={index}
-                    />
-                  ))}
+                  {topics.length === 0 ? (
+                    <div className="w-full h-32 flex flex-row justify-center items-center">
+                      <svg
+                        class="text-gray-300 animate-spin"
+                        viewBox="0 0 64 64"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                      >
+                        <path
+                          d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                          stroke="currentColor"
+                          stroke-width="5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                          stroke="currentColor"
+                          stroke-width="5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="text-gray-900"
+                        ></path>
+                      </svg>
+                    </div>
+                  ) : (
+                    <>
+                      {topics.map((val, index) => (
+                        <CategoryPost
+                          key={val.id}
+                          category={val}
+                          index={index}
+                        />
+                      ))}
+                    </>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center sm:pb-20 pb-8">
-        <div class="flex space-x-1">
-          <button class="rounded-full border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-slate-800 focus:text-white focus:bg-[#005245] focus:border-slate-800 active:border-slate-800 active:text-white active:bg-[#005245] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-            Prev
-          </button>
-          <button class="min-w-9 rounded-full border border-slate-300 py-2 px-3.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-slate-800 focus:text-white focus:bg-[#005245] focus:border-slate-800 active:border-slate-800 active:text-white active:bg-[#005245] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-            1
-          </button>
-          <button class="min-w-9 rounded-full border border-slate-300 py-2 px-3.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-slate-800 focus:text-white focus:bg-[#005245] focus:border-slate-800 active:border-slate-800 active:text-white active:bg-[#005245] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-            2
-          </button>
-          <button class="min-w-9 rounded-full border border-slate-300 py-2 px-3.5 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-slate-800 focus:text-white focus:bg-[#005245] focus:border-slate-800 active:border-slate-800 active:text-white active:bg-[#005245] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-            3
-          </button>
-          <button class="min-w-9 rounded-full border border-slate-300 py-2 px-3 text-center text-sm transition-all shadow-sm hover:shadow-lg text-slate-600 hover:text-white hover:bg-[#005245] hover:border-slate-800 focus:text-white focus:bg-[#005245] focus:border-slate-800 active:border-slate-800 active:text-white active:bg-[#005245] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2">
-            Next
-          </button>
-        </div>
+      <div className="flex justify-center items-center space-x-2 mb-24">
+        {/* Nút Previous */}
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className={`w-10 h-10 flex justify-center items-center border rounded-full ${
+            currentPage === 1
+              ? "opacity-50 cursor-not-allowed"
+              : "text-gray-700"
+          }`}
+        >
+          <ChevronLeftIcon className="h-4 w-4" />
+        </button>
+
+        {/* Các nút phân trang */}
+        {generatePagination()}
+
+        {/* Nút Next */}
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className={`w-10 h-10 flex justify-center items-center border rounded-full ${
+            currentPage === totalPages
+              ? "opacity-50 cursor-not-allowed"
+              : "text-gray-700"
+          }`}
+        >
+          <ChevronRightIcon className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );

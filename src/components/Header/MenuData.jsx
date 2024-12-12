@@ -13,7 +13,7 @@ export const MenuData = [
   },
   {
     title: "Thư viện",
-    link: "/thu-vien",
+    link: "/thu-vien?pageNumber=0&pageSize=8&sort=id,desc",
   },
   {
     title: "Liên hệ",
