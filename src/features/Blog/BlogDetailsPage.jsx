@@ -124,7 +124,10 @@ function BlogDetailsPage(props) {
                 <h5 class="text-slate-800 xl:text-2xl sm:text-xl font-semibold">
                   Blog nổi bật
                 </h5>
-                <a href="/" class="text-slate-600">
+                <a
+                  href="thu-vien/chu-de/bai-viet-noi-bat"
+                  class="text-slate-600"
+                >
                   Xem tất cả
                 </a>
               </div>
