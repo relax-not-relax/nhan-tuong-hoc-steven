@@ -22,7 +22,11 @@ function FilteredBlogRootLayout(props) {
     };
     const fetchFeatures = async () => {
       try {
-        const resFeature = await blogAPI.getBlogFeature();
+        const resFeature = await blogAPI.getBlogFeature({
+          pageNumber: 0,
+          pageSize: 3,
+          sort: "id,desc",
+        });
         setFeatures(resFeature.data.content);
       } catch (error) {
         console.log("Failed to get features: ", error);
@@ -73,7 +77,10 @@ function FilteredBlogRootLayout(props) {
                 <h5 class="text-slate-800 xl:text-2xl sm:text-xl font-semibold">
                   Blog nổi bật
                 </h5>
-                <a href="/" class="text-slate-600">
+                <a
+                  href="/thu-vien/chu-de/bai-viet-noi-bat"
+                  class="text-slate-600"
+                >
                   Xem tất cả
                 </a>
               </div>
