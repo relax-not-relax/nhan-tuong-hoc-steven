@@ -61,11 +61,10 @@ export function BlogFeature() {
       <button
         key={1}
         onClick={() => handlePageChange(1)}
-        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
-          currentPage === 1
+        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${currentPage === 1
             ? "border-[#005245] text-[#005245] font-medium"
             : "text-gray-700"
-        }`}
+          }`}
       >
         1
       </button>
@@ -92,11 +91,10 @@ export function BlogFeature() {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
-            currentPage === i
+          className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${currentPage === i
               ? "border-[#005245] text-[#005245] font-medium"
               : "text-gray-700"
-          }`}
+            }`}
         >
           {i}
         </button>
@@ -120,11 +118,10 @@ export function BlogFeature() {
       <button
         key={totalPages}
         onClick={() => handlePageChange(totalPages)}
-        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${
-          currentPage === totalPages
+        className={`w-10 h-10 flex justify-center items-center border-2 rounded-full ${currentPage === totalPages
             ? "border-[#005245] text-[#005245] font-medium"
             : "text-gray-700"
-        }`}
+          }`}
       >
         {totalPages}
       </button>
@@ -240,7 +237,7 @@ export function BlogFeature() {
               </div>
             </div>
           ) : (
-            <div className="flex-auto xl:w-2/5 sm:w-[30%] gap-y-4 gap-x-4 grid sm:grid-cols-2 grid-cols-1 flex justify-start flex-wrap pe-12">
+            <div className="flex-auto xl:w-2/5 sm:w-[30%] gap-y-4 gap-x-4 grid sm:grid-cols-2 grid-cols-1 flex justify-start flex-wrap sm:pe-12">
               {blogs.map((val, index) => (
                 <PostCard
                   key={index}
@@ -389,11 +386,10 @@ export function BlogFeature() {
         <button
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className={`w-10 h-10 flex justify-center items-center border rounded-full ${
-            currentPage === 1
+          className={`w-10 h-10 flex justify-center items-center border rounded-full ${currentPage === 1
               ? "opacity-50 cursor-not-allowed"
               : "text-gray-700"
-          }`}
+            }`}
         >
           <ChevronLeftIcon className="h-4 w-4" />
         </button>
@@ -405,11 +401,10 @@ export function BlogFeature() {
         <button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className={`w-10 h-10 flex justify-center items-center border rounded-full ${
-            currentPage === totalPages
+          className={`w-10 h-10 flex justify-center items-center border rounded-full ${currentPage === totalPages
               ? "opacity-50 cursor-not-allowed"
               : "text-gray-700"
-          }`}
+            }`}
         >
           <ChevronRightIcon className="h-4 w-4" />
         </button>
