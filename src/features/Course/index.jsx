@@ -15,8 +15,32 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll";
+import blogAPI from "../../api/blogApi";
+import formatNormalDate from "../../utils/formatNormalDate";
 
 function CourseFeature() {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [blogs, setBlogs] = React.useState([]);
+
+  React.useEffect(() => {
+    setIsLoading(true);
+    const fetchBlogs = async () => {
+      try {
+        const res = await blogAPI.getBlogs({
+          pageNumber: 0,
+          pageSize: 3,
+          sort: "id,desc",
+        });
+        setBlogs(res.data.content);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("Failed to fetch blogs: ", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
   useEffect(() => {
     AOS.init({ duration: 1000, easing: "ease-in-out" });
   }, []);
@@ -47,6 +71,12 @@ function CourseFeature() {
               <button
                 type="button"
                 className="prevent-select my-course__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 xl:mt-8 md:mt-10 min-[376px]:mt-4 mt-4"
+                onClick={() =>
+                  window.open(
+                    "https://forms.clickup.com/9008120765/f/8ceu0xx-225/2IG2XRW7JJ1ZMH4Y72",
+                    "_blank"
+                  )
+                }
               >
                 Đăng ký tại đây
               </button>
@@ -184,6 +214,12 @@ function CourseFeature() {
             <button
               type="button"
               className="prevent-select my-course__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 xl:mt-8 min-[376px]:mt-0 mt-4"
+              onClick={() =>
+                window.open(
+                  "https://forms.clickup.com/9008120765/f/8ceu0xx-225/2IG2XRW7JJ1ZMH4Y72",
+                  "_blank"
+                )
+              }
             >
               Đăng ký tại đây
             </button>
@@ -283,7 +319,13 @@ function CourseFeature() {
                 </span>{" "}
                 hoặc liên hệ Team Đào tạo qua Zalo:{" "}
                 <span className="text-[#E7C99D] underline">
-                  <a href="+84 938439554">093.843.9554</a>
+                  <a
+                    href="https://zalo.me/0938439554"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    093.843.9554
+                  </a>
                 </span>{" "}
               </p>
             </div>
@@ -311,157 +353,94 @@ function CourseFeature() {
                 Kho kiến thức nhân tướng dành cho các thành viên yêu thích luận
                 tướng dạo.
               </p>
-              <div class="mx-auto mt-4 min-[376px]:mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:mb-12 md:mb-16 min-[376px]:mb-8 mb-8">
-                <article class="flex max-w-xl flex-col items-start justify-start my-blog">
-                  <div
-                    className="w-full h-52 min-[376px]:h-56 xl:h-60 md:h-60 mb-2 rounded-3xl"
-                    style={{
-                      background: `url(${blog1})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
-                  <div className="blog-content">
-                    <div class="flex items-center gap-x-4 text-xs">
-                      <time
-                        datetime="2020-03-16"
-                        class="text-white prevent-select"
+              {isLoading || blogs.length === 0 ? (
+                <div className="w-full h-24 flex justify-center items-center">
+                  <svg
+                    class="text-gray-300 animate-spin"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                      stroke="currentColor"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                      stroke="currentColor"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="text-gray-900"
+                    ></path>
+                  </svg>
+                </div>
+              ) : (
+                <div class="mx-auto mt-4 min-[376px]:mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:mb-12 md:mb-16 min-[376px]:mb-8 mb-8">
+                  {blogs.map((blog, key) => {
+                    return (
+                      <article
+                        className="flex max-w-xl flex-col items-start justify-start my-blog"
+                        key={key}
+                        onClick={() => {
+                          handleNavigate(`/thu-vien/${blog.postProperties.id}`);
+                        }}
                       >
-                        12/06/2024
-                      </time>
-                    </div>
-                    <div class="mt-2 group relative">
-                      <h3 class="text-lg font-semibold leading-6 text-white text-start prevent-select">
-                        <a href="/">
-                          <span class="absolute inset-0 prevent-select"></span>
-                          Boost your conversion rate
-                        </a>
-                      </h3>
-                      <p class="mt-2 line-clamp-3 text-sm leading-6 text-white text-start prevent-select">
-                        Illo sint voluptas. Error voluptates culpa eligendi. Hic
-                        vel totam vitae illo. Non aliquid explicabo
-                        necessitatibus unde. Sed exercitationem placeat
-                        consectetur nulla deserunt vel. Iusto corrupti dicta.
-                      </p>
-                    </div>
-                    <div class="relative mt-3 flex items-center gap-x-4">
-                      <img
-                        src={avatar}
-                        alt=""
-                        class="h-10 w-10 rounded-full bg-gray-50"
-                      />
-                      <div class="text-sm leading-6">
-                        <p class="font-semibold text-white text-start prevent-select">
-                          <a href="/">
-                            <span class="absolute inset-0 prevent-select"></span>
-                            Steven Tran
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                        <div
+                          className="w-full h-52 min-[376px]:h-56 xl:h-60 md:h-60 mb-2 rounded-3xl"
+                          style={{
+                            background: `url(${blog.postProperties.thumnail})`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                          }}
+                        ></div>
+                        <div className="blog-content">
+                          <div class="flex items-center gap-x-4 text-xs">
+                            <time
+                              datetime="2020-03-16"
+                              class="text-white prevent-select"
+                            >
+                              {formatNormalDate(blog.postProperties.createTime)}
+                            </time>
+                          </div>
+                          <div class="mt-2 group relative">
+                            <h3 class="text-lg font-semibold leading-6 text-white text-start prevent-select">
+                              <a href="/">
+                                <span class="absolute inset-0 prevent-select"></span>
+                                {blog.postProperties.title}
+                              </a>
+                            </h3>
+                            <p class="mt-2 line-clamp-3 text-sm leading-6 text-white text-start prevent-select">
+                              {blog.postProperties.shortDescription}
+                            </p>
+                          </div>
+                          <div class="relative mt-3 flex items-center gap-x-4">
+                            <img
+                              src={avatar}
+                              alt=""
+                              class="h-10 w-10 rounded-full bg-gray-50"
+                            />
+                            <div class="text-sm leading-6">
+                              <p class="font-semibold text-white text-start prevent-select">
+                                <a href="/">
+                                  <span class="absolute inset-0 prevent-select"></span>
+                                  Steven Tran
+                                </a>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
 
-                <article class="flex max-w-xl flex-col items-start justify-start my-blog">
-                  <div
-                    className="w-full h-52 min-[376px]:h-56 xl:h-60 md:h-60 mb-2 rounded-3xl"
-                    style={{
-                      background: `url(${blog2})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
-                  <div className="blog-content">
-                    <div class="flex items-center gap-x-4 text-xs">
-                      <time
-                        datetime="2020-03-16"
-                        class="text-white prevent-select"
-                      >
-                        12/06/2024
-                      </time>
-                    </div>
-                    <div class="mt-2 group relative">
-                      <h3 class="text-lg font-semibold leading-6 text-white text-start prevent-select">
-                        <a href="/">
-                          <span class="absolute inset-0 prevent-select"></span>
-                          Boost your conversion rate
-                        </a>
-                      </h3>
-                      <p class="mt-2 line-clamp-3 text-sm leading-6 text-white text-start prevent-select">
-                        Illo sint voluptas. Error voluptates culpa eligendi. Hic
-                        vel totam vitae illo. Non aliquid explicabo
-                        necessitatibus unde. Sed exercitationem placeat
-                        consectetur nulla deserunt vel. Iusto corrupti dicta.
-                      </p>
-                    </div>
-                    <div class="relative mt-3 flex items-center gap-x-4">
-                      <img
-                        src={avatar}
-                        alt=""
-                        class="h-10 w-10 rounded-full bg-gray-50"
-                      />
-                      <div class="text-sm leading-6">
-                        <p class="font-semibold text-white text-start prevent-select">
-                          <a href="/">
-                            <span class="absolute inset-0 prevent-select"></span>
-                            Steven Tran
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="flex max-w-xl flex-col items-start justify-start my-blog">
-                  <div
-                    className="w-full h-52 min-[376px]:h-56 xl:h-60 md:h-60 mb-2 rounded-3xl"
-                    style={{
-                      background: `url(${blog3})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  ></div>
-                  <div className="blog-content">
-                    <div class="flex items-center gap-x-4 text-xs">
-                      <time
-                        datetime="2020-03-16"
-                        class="text-white prevent-select"
-                      >
-                        12/06/2024
-                      </time>
-                    </div>
-                    <div class="mt-2 group relative">
-                      <h3 class="text-lg font-semibold leading-6 text-white text-start prevent-select">
-                        <a href="/">
-                          <span class="absolute inset-0 prevent-select"></span>
-                          Boost your conversion rate
-                        </a>
-                      </h3>
-                      <p class="mt-2 line-clamp-3 text-sm leading-6 text-white text-start prevent-select">
-                        Illo sint voluptas. Error voluptates culpa eligendi. Hic
-                        vel totam vitae illo. Non aliquid explicabo
-                        necessitatibus unde. Sed exercitationem placeat
-                        consectetur nulla deserunt vel. Iusto corrupti dicta.
-                      </p>
-                    </div>
-                    <div class="relative mt-3 flex items-center gap-x-4">
-                      <img
-                        src={avatar}
-                        alt=""
-                        class="h-10 w-10 rounded-full bg-gray-50"
-                      />
-                      <div class="text-sm leading-6">
-                        <p class="font-semibold text-white text-start prevent-select">
-                          <a href="/">
-                            <span class="absolute inset-0 prevent-select"></span>
-                            Steven Tran
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
               <button
                 type="button"
                 className="prevent-select my-course__section-5-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-12 xl:py-[0.6rem] xl:px-16 min-[376px]:py-2 min-[376px]:px-5 py-2 px-5"
