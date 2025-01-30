@@ -36,6 +36,12 @@ function ConsultantFeature() {
               <button
                 type="button"
                 className="prevent-select my-consultant__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 xl:mt-8 lg:mt-4 md:mt-10 min-[376px]:mt-4 mt-4"
+                onClick={() =>
+                  window.open(
+                    "https://forms.clickup.com/9008120765/f/8ceu0xx-556/Y2VXENOJWJYPLCRTW0",
+                    "_blank"
+                  )
+                }
               >
                 Đặt lịch tại đây
               </button>
@@ -75,6 +81,12 @@ function ConsultantFeature() {
                   <button
                     type="button"
                     className="prevent-select my-consultant__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 sm:mt-6 min-[376px]:mt-4 mt-4"
+                    onClick={() =>
+                      window.open(
+                        "https://forms.clickup.com/9008120765/f/8ceu0xx-556/Y2VXENOJWJYPLCRTW0",
+                        "_blank"
+                      )
+                    }
                   >
                     Đăng ký
                   </button>
@@ -151,6 +163,12 @@ function ConsultantFeature() {
               <button
                 type="button"
                 className="prevent-select my-consultant__section-1-content-btn text-sm min-[376px]:text-sm sm:text-xl md:text-lg xl:text-xl md:py-3 md:px-5 xl:py-[0.6rem] xl:px-7 min-[376px]:py-2 min-[376px]:px-3 py-2 px-3 xl:mt-8 md:mt-10 min-[376px]:mt-4 mt-4"
+                onClick={() =>
+                  window.open(
+                    "https://forms.clickup.com/9008120765/f/8ceu0xx-556/Y2VXENOJWJYPLCRTW0",
+                    "_blank"
+                  )
+                }
               >
                 Đặt lịch tại đây
               </button>
@@ -243,7 +261,13 @@ function ConsultantFeature() {
               Nếu bạn cần hỗ trợ về đăng ký, vui lòng liên hệ Team Đào tạo qua
               Zalo:{" "}
               <span className="text-[#E7C99D] underline">
-                <a href="+84 938439554">093.843.9554</a>
+                <a
+                  href="https://zalo.me/0938439554"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  093.843.9554
+                </a>
               </span>{" "}
             </p>
           </div>

@@ -124,9 +124,10 @@ export default function Header() {
 
         <PopoverGroup className="hidden lg:flex bg-red-100 page-group">
           {MenuData.map((val, key) => {
+            const url = new URL(val.link, window.location.origin);
             const isActive =
-              location.pathname === val.link ||
-              location.pathname.startsWith(val.link);
+              location.pathname === url.pathname &&
+              location.search === url.search;
             return (
               <a
                 key={key}
